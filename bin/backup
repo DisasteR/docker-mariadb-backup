@@ -9,7 +9,11 @@ fi
 
 echo $$ >$PIDFILE
 
-mdbtool backup ${BACKUP_METHOD} ${BACKUP_OPTS}
+if [ -z "${BACKUP_DATABASES}" ]; then
+  mdbtool backup ${BACKUP_METHOD} ${BACKUP_OPTS}
+else
+  mdbtool multibackup ${BACKUP_METHOD} ${BACKUP_OPTS}
+fi
 
 retval=$?
 

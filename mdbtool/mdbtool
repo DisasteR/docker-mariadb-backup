@@ -8,6 +8,7 @@ PLUGIN_PKG = 'plugins'
 
 ENTRY_MAP = {
     'backup'  : 'Backup',
+    'multibackup'  : 'MultiBackup',
     'restore' : 'Restore'
 }
 
@@ -26,6 +27,14 @@ class Main:
             print('plugin is required')
             exit(1)
         module = self.loadPlugin(plugin=plugin, entry='backup')
+        module.main(self.args.args)
+
+    def multibackup(self):
+        plugin = self.args.plugin
+        if not (plugin):
+            print('plugin is required')
+            exit(1)
+        module = self.loadPlugin(plugin=plugin, entry='multibackup')
         module.main(self.args.args)
 
     def restore(self):
