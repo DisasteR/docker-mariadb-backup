@@ -26,6 +26,7 @@ COPY bin/* /usr/local/bin/
 
 RUN ln -s /usr/local/mdbtool/mdbtool /usr/local/bin
 
+COPY docker-entrypoint.sh /usr/local/bin
 COPY initdb/* /docker-entrypoint-initdb.d/
 
 
@@ -33,6 +34,7 @@ EXPOSE 18080
 
 VOLUME /backup
 
-ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
+ENTRYPOINT ["docker-entrypoint.sh"]
+
 CMD ["go-cron"]
 
