@@ -1,5 +1,6 @@
 FROM mariadb:latest
 MAINTAINER Yanis LISIMA <zeenlym@gmail.com>
+MAINTAINER Joel Bernstein / N3xtcoder developers <dev@n3xtcoder.org>
 
 # Setting bash as default shell
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
@@ -24,6 +25,9 @@ COPY mdbtool /usr/local/mdbtool
 COPY bin/* /usr/local/bin/
 
 RUN ln -s /usr/local/mdbtool/mdbtool /usr/local/bin
+
+COPY initdb/* /docker-entrypoint-initdb.d/
+
 
 EXPOSE 18080
 
