@@ -42,6 +42,11 @@ def backup(args):
     if ( os.environ['MYSQL_PASSWORD'] ) :
         cmd.append('-p{}'.format(os.environ['MYSQL_PASSWORD']))
 
+    # SSL
+    if ( os.environ['DB_SSL'] ) :
+        cmd.append('--ssl')
+        cmd.append('--ssl-ca={}'.format(os.environ['DB_SSL'])
+
     cmd.extend(args.args)
 
     cmd.append('--result-file {}'.format(os.path.join(DEST_DIR, args.outfile)))
