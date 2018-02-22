@@ -1,6 +1,7 @@
 FROM mariadb:latest
 MAINTAINER Yanis LISIMA <zeenlym@gmail.com>
-MAINTAINER Joel Bernstein / N3xtcoder developers <dev@n3xtcoder.org>
+MAINTAINER N3xtcoder developers <dev@n3xtcoder.org>
+MAINTAINER Joel Bernstein <joel@fysh.org>
 
 # Setting bash as default shell
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
