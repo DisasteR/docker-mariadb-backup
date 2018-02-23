@@ -86,6 +86,11 @@ class Main:
         parser_backup.add_argument('plugin', help='backup plugin', nargs='?')
         parser_backup.add_argument('args', nargs=argparse.REMAINDER)
 
+        parser_multibackup = subparsers.add_parser('multibackup', help='multibackup database')
+        parser_multibackup.add_argument('--list', help='list available plugins', action='store_true')
+        parser_multibackup.add_argument('plugin', help='multibackup plugin', nargs='?')
+        parser_multibackup.add_argument('args', nargs=argparse.REMAINDER)
+
         parser_restore = subparsers.add_parser('restore', help='restore database')
         parser_restore.add_argument('plugin', help='restore plugin')
         parser_restore.add_argument('args', nargs=argparse.REMAINDER)
