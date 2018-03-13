@@ -6,6 +6,6 @@ if [ -n "${DB_SSL_CA_CERT}" ]; then
   if [ -e ${DB_SSL} ]; then
     echo "File ${DB_SSL} already exists, ignoring DB_SSL_CA_CERT."
   else
-    echo "${DB_SSL_CA_CERT}" | sed -e 's,\\n,\n,g' > ${DB_SSL}
+    echo "${DB_SSL_CA_CERT}" | sed -e 's/%%%/\n/g' > ${DB_SSL}
   fi
 fi
