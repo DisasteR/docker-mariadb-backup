@@ -6,7 +6,7 @@ if [ -n "$TIMEZONE" ]; then
     dpkg-reconfigure -f noninteractive tzdata
 fi
 
-if [ $1 = "go-cron" ]; then
+if [ "${1-}" = "go-cron" ]; then
 
     if [ -z "$SCHEDULE" ]; then
         echo Missing SCHEDULE environment variable 2>&1
