@@ -40,7 +40,7 @@ def backup(args):
 
     # Password
     if ( os.getenv('MYSQL_PASSWORD') is not None ) :
-        cmd.append('-p{}'.format(os.environ['MYSQL_PASSWORD']))
+        cmd.append("-p'{}'".format(os.environ['MYSQL_PASSWORD']))
 
     # SSL
     if ( os.getenv('DB_SSL') is not None ) :
