@@ -105,6 +105,8 @@ class Main:
         command = self.args.command
         if (command == 'backup'):
             self.backup()
+        elif (command == 'multibackup'):
+            self.multibackup()
         elif (command == 'restore'):
             self.restore()
         else :
