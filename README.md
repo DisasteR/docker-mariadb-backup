@@ -1,6 +1,13 @@
 # docker-mariadb-backup
 Docker image for backing up and restoring mariadb
 
+# Don't Forget!
+
+Old backups also need to be cleared out. I suggest a cronjob like:
+```
+find /backup -type f -mtime +7d -exec rm {} \;
+```
+
 # Quick start
 ## Run
 ### Scheduled Backup
