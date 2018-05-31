@@ -10,8 +10,10 @@ fi
 echo $$ >$PIDFILE
 
 if [ -z "${BACKUP_DATABASES}" ]; then
+  echo "no BACKUP_DATABASES, using backup ${BACKUP_METHOD} ${BACKUP_OPTS}"
   mdbtool backup ${BACKUP_METHOD} ${BACKUP_OPTS}
 else
+  echo "found BACKUP_DATABASES, using multibackup ${BACKUP_METHOD} ${BACKUP_OPTS}"
   mdbtool multibackup ${BACKUP_METHOD} ${BACKUP_OPTS}
 fi
 
