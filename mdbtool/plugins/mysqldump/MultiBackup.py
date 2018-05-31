@@ -39,13 +39,13 @@ def backup(args):
     cmd.append('-u{}'.format(checkAndGetEnv('MYSQL_USER')))
 
     # Password
-    if ( os.environ['MYSQL_PASSWORD'] ) :
+    if ( os.getenv('MYSQL_PASSWORD') is not None ) :
         cmd.append('-p{}'.format(os.environ['MYSQL_PASSWORD']))
 
     # SSL
-    if ( os.environ['DB_SSL'] ) :
+    if ( os.getenv('DB_SSL') is not None ) :
         cmd.append('--ssl')
-        cmd.append('--ssl-ca={}'.format(os.environ['DB_SSL'])
+        cmd.append('--ssl-ca={}'.format(os.environ['DB_SSL']))
 
     cmd.extend(args.args)
 
